@@ -17,14 +17,14 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = GridLayoutManager(this,2)
 
-        val itemsShop = (0..20).map {
+        var itemsShop = (0..20).map {
             PostItem(
                 "ljkasdjklña$it",
-                "Smart TV LG 43",
+                "Smart TV LG 43Smart TV LG 43Smart TV LG 43Smart TV LG 43",
                 "d3lfzbr90tctqz.cloudfront.net/epi/resource/r/smart-tv-lg-43-4k-ultra-hd-43uj6560/ea1ad44603acda220729bbbb8afc70c2feb381f32044ccc0a02383242c34142f",
-                5000.0,
-                10000.0,
-                50f
+                5000,
+                10000,
+                it
             )
         }
 

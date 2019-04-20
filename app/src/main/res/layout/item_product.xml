@@ -16,12 +16,12 @@
             android:id="@+id/txtTitle"
             android:text="Titulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" android:textColor="@color/colorProductTitle"/>
     <TextView
             android:id="@+id/txtPrice"
             android:text="$2.000"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:textColor="@color/colorPrice"
+            android:layout_height="wrap_content" android:textColor="@color/colorProductPrice"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <LinearLayout
             android:id="@+id/discountLayout"
@@ -34,13 +34,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$2.000"
-                android:textColor="@color/colorOldPrice"/>
+                android:textColor="@color/colorProductOldPrice"/>
         <TextView
                 android:id="@+id/txtDiscount"
                 android:layout_marginHorizontal="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15%" android:textColor="@color/colorDiscount"/>
+                android:text="15%" android:textColor="@color/colorProductDiscount"/>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/tagLayout"
