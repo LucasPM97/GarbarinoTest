@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/img_placeholder"/>
+    <TextView
+            android:id="@+id/txtTitle"
+            android:text="Titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <TextView
+            android:id="@+id/txtPrice"
+            android:text="$2.000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textColor="@color/colorPrice"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    <LinearLayout
+            android:id="@+id/discountLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/txtOldPrice"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$2.000"
+                android:textColor="@color/colorOldPrice"/>
+        <TextView
+                android:id="@+id/txtDiscount"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15%" android:textColor="@color/colorDiscount"/>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/tagLayout"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    </LinearLayout>
+</LinearLayout>
+</android.support.v7.widget.CardView>
