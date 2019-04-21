@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
         var itemsShop = (0..20).map {
             PostItem(
                 "ljkasdjklña$it",
-                "Smart TV LG 43Smart TV LG 43Smart TV LG 43Smart TV LG 43",
+                "Smart TV LG 43 \" 4K Ultra HD 43UJ6560",
                 "d3lfzbr90tctqz.cloudfront.net/epi/resource/r/smart-tv-lg-43-4k-ultra-hd-43uj6560/ea1ad44603acda220729bbbb8afc70c2feb381f32044ccc0a02383242c34142f",
-                5000,
+                3700,
                 10000,
                 it
             )
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val adapter = AdapterPosts(itemsShop)
 
         recyclerView.adapter = adapter
+
 
     }
 }

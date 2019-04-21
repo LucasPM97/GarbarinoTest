@@ -9,44 +9,64 @@
         android:layout_width="match_parent" 
         android:layout_height="wrap_content">
     <ImageView
+            android:id="@+id/imageHeader"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
+            android:transitionName="transitionHeader"
             android:src="@drawable/img_placeholder"/>
-    <TextView
-            android:id="@+id/txtTitle"
-            android:text="Titulo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:textColor="@color/colorProductTitle"/>
-    <TextView
-            android:id="@+id/txtPrice"
-            android:text="$2.000"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:textColor="@color/colorProductPrice"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
     <LinearLayout
-            android:id="@+id/discountLayout"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="5dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <TextView
-                android:id="@+id/txtOldPrice"
-                android:layout_marginHorizontal="5dp"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtTitle"
+                android:text="Titulo"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:transitionName="transitionTitle"
+                android:textColor="@color/colorProductTitle"/>
+        <TextView
+                android:id="@+id/txtPrice"
                 android:text="$2.000"
-                android:textColor="@color/colorProductOldPrice"/>
-        <TextView
-                android:id="@+id/txtDiscount"
-                android:layout_marginHorizontal="5dp"
-                android:layout_width="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="15%" android:textColor="@color/colorProductDiscount"/>
+                android:transitionName="transitionPrice"
+                android:textColor="@color/colorProductPrice"
+                android:textSize="28sp"/>
+        <LinearLayout
+                android:id="@+id/discountLayout"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+            <TextView
+                    android:id="@+id/txtOldPrice"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$2.000"
+                    android:transitionName="transitionOldPrice"
+                    android:textColor="@color/colorProductOldPrice"/>
+            <TextView
+                    android:id="@+id/txtDiscount"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15%"
+                    android:transitionName="transitionDiscount"
+                    android:textColor="@color/colorProductDiscount"/>
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/tagLayout"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-            android:id="@+id/tagLayout"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-    </LinearLayout>
+
 </LinearLayout>
 </android.support.v7.widget.CardView>

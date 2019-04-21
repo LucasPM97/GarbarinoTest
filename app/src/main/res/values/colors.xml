@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#C62828</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FFFFFF</color>
 
     <!-- Used for Products -->
-    <color name="colorProductTitle">#C62828</color>
+    <color name="colorProductTitle">#000000</color>
     <color name="colorProductPrice">#C62828</color>
     <color name="colorProductOldPrice">#BDBDBD</color>
     <color name="colorProductDiscount">#43A047</color>
