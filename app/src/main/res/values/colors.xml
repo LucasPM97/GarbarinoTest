@@ -9,4 +9,15 @@
     <color name="colorProductPrice">#C62828</color>
     <color name="colorProductOldPrice">#BDBDBD</color>
     <color name="colorProductDiscount">#43A047</color>
+
+    <!-- Chip -->
+    <color name="colorChipBackground">#BABDBE</color>
+    <color name="colorChipText">#000000</color>
+
+    <!-- RatingBar -->
+    <color name="colorRatingStarsBackground">#9EA7AA</color>
+    <color name="colorRatingStarsTint">#039BE5</color>
+    <color name="colorRatingStarsText">#039BE5</color>
+
+
 </resources>

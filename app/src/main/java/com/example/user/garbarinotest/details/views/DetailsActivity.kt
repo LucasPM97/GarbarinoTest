@@ -121,6 +121,7 @@ class DetailsActivity : AppCompatActivity() {
                 }
             }
 
+            presenter?.getPostReviews(it.xid)
 
         }
 
@@ -140,4 +141,22 @@ class DetailsActivity : AppCompatActivity() {
             println(e)
         }
     }
+
+    fun addReviewsStars(statistics: ReviewStatistics?) {
+
+        statistics?.let {stats ->
+            ratingBar.rating = (stats.averageOverallRating ?: 0.0).toFloat()
+
+            txtRatingBar.text = "${stats.ratingDistribution?.count()} opiniones"
+
+        }
+
+    }
+
+    fun addReviews(reviews: List<ReviewsItem?>?) {
+
+
+
+    }
+
 }

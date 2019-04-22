@@ -25,6 +25,12 @@ data class DetailsActivityPresenter (private val view:DetailsActivity) {
 
     fun returnPostReviews(reviews: ResponseReviewsItems?) {
 
+        reviews?.let {
+
+            view.addReviewsStars(it.reviewStatistics)
+            view.addReviews(it.reviews?.take(3))
+            view.Reviews = it
+        }
     }
 
 
