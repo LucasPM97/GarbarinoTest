@@ -32,7 +32,7 @@
                 android:id="@+id/revUserRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/RatingBarIndicator"
+                style="@style/RatingBarSmall"
                 android:numStars="5"
                 android:isIndicator="true"
                 android:rating="0"
