@@ -16,67 +16,72 @@ import com.example.user.garbarinotest.details.views.DetailsActivity
 import com.example.user.garbarinotest.models.PostItem
 import kotlinx.android.synthetic.main.item_product.view.*
 
-class AdapterPosts(private val data: List<PostItem>): RecyclerView.Adapter<AdapterPosts.Holder>(){
+class AdapterPosts(private val data: List<PostItem?>?): RecyclerView.Adapter<AdapterPosts.Holder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder =
         Holder(LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false))
 
-    override fun getItemCount() = data.size
+    override fun getItemCount() = data?.size ?: 0
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bindView(data[position])
+
+        data?.let {
+            holder.bindView(it[position])
+        }
     }
 
     class Holder(itemView:View):RecyclerView.ViewHolder(itemView){
 
-        fun bindView(item: PostItem){
+        fun bindView(item: PostItem?){
 
-            with(item){
-                itemView.txtTitle.text = description
-                itemView.txtPrice.text = "$ $price"
-
-                if (hasDiscount()){
-                    itemView.txtOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                    itemView.txtOldPrice.text = "$ $list_price"
-                    itemView.txtDiscount.text = "${discount}% OFF"
-                }
-                else{
-                    itemView.discountLayout.visibility = View.GONE
-                }
-
-                itemView.tagLayout.visibility = View.GONE
-
-                itemView.setOnClickListener {
-
-                    val intent = Intent(itemView.context, DetailsActivity::class.java)
-                    intent.putExtra("title", description)
-                    intent.putExtra("price", price)
-                    intent.putExtra("oldPrice", list_price)
-                    intent.putExtra("discount", discount)
-                    intent.putExtra("hasDiscount", hasDiscount())
+            item?.let {
+                with(it){
+                    itemView.txtTitle.text = description
+                    itemView.txtPrice.text = "$ $price"
 
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-
-                        val pImage:Pair<View, String> = Pair.create(itemView.imageHeader, "transitionHeader")
-                        val pTitle:Pair<View, String> = Pair.create(itemView.txtTitle, "transitionTitle")
-                        val pPrice:Pair<View, String> = Pair.create(itemView.txtPrice, "transitionPrice")
-                        val pOldPrice:Pair<View, String> = Pair.create(itemView.txtOldPrice, "transitionOldPrice")
-                        val pDiscount:Pair<View, String> = Pair.create(itemView.txtDiscount, "transitionDiscount")
-
-                        val options:ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(itemView.context as Activity, pImage,pTitle,pPrice,pOldPrice,pDiscount)
-
-                        itemView.context.startActivity(intent, options.toBundle())
+                    if (hasDiscount()){
+                        itemView.txtOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                        itemView.txtOldPrice.text = "$ $listPrice"
+                        itemView.txtDiscount.text = "${discount}% OFF"
                     }
                     else{
-                        itemView.context.startActivity(intent)
+                        itemView.discountLayout.visibility = View.GONE
                     }
+
+                    itemView.tagLayout.visibility = View.GONE
+
+                    itemView.setOnClickListener {
+
+                        val intent = Intent(itemView.context, DetailsActivity::class.java)
+                        intent.putExtra("title", description)
+                        intent.putExtra("price", price)
+                        intent.putExtra("oldPrice", listPrice)
+                        intent.putExtra("discount", discount)
+                        intent.putExtra("hasDiscount", hasDiscount())
+
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+
+                            val pImage:Pair<View, String> = Pair.create(itemView.imageHeader, "transitionHeader")
+                            val pTitle:Pair<View, String> = Pair.create(itemView.txtTitle, "transitionTitle")
+                            val pPrice:Pair<View, String> = Pair.create(itemView.txtPrice, "transitionPrice")
+                            val pOldPrice:Pair<View, String> = Pair.create(itemView.txtOldPrice, "transitionOldPrice")
+                            val pDiscount:Pair<View, String> = Pair.create(itemView.txtDiscount, "transitionDiscount")
+
+                            val options:ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(itemView.context as Activity, pImage,pTitle,pPrice,pOldPrice,pDiscount)
+
+                            itemView.context.startActivity(intent, options.toBundle())
+                        }
+                        else{
+                            itemView.context.startActivity(intent)
+                        }
+                    }
+
+
                 }
-
-
             }
-
         }
     }
 }
