@@ -59,6 +59,7 @@ class AdapterPosts(private val data: List<PostItem?>?): RecyclerView.Adapter<Ada
                     itemView.setOnClickListener {
 
                         val intent = Intent(itemView.context, DetailsActivity::class.java)
+                        intent.putExtra("id", id)
                         intent.putExtra("title", description)
                         intent.putExtra("price", price)
                         intent.putExtra("oldPrice", listPrice)

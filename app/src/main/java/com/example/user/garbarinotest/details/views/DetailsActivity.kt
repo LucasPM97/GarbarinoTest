@@ -6,14 +6,20 @@ import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.user.garbarinotest.R
+import com.example.user.garbarinotest.home.presenter.DetailsActivityPresenter
+import com.example.user.garbarinotest.models.ResponsePost
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class DetailsActivity : AppCompatActivity() {
 
+    private var presenter:DetailsActivityPresenter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+
+        presenter = DetailsActivityPresenter(this)
 
         intent?.extras?.let {
 
@@ -43,5 +49,22 @@ class DetailsActivity : AppCompatActivity() {
 
             detailTagLayout.visibility = View.GONE
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        intent?.extras?.let {
+
+            val id:String = it.getString("id")
+
+            presenter?.getPostData(id)
+        }
+
+
+    }
+
+    fun fillPostData(post:ResponsePost?){
+
     }
 }
