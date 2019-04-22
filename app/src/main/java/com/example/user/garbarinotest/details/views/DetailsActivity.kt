@@ -8,12 +8,13 @@ import com.bumptech.glide.Glide
 import com.example.user.garbarinotest.R
 import com.example.user.garbarinotest.home.presenter.DetailsActivityPresenter
 import com.example.user.garbarinotest.models.ResponsePost
-import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.item_product.view.*
+import kotlinx.android.synthetic.main.details_main_layout.*
 
 class DetailsActivity : AppCompatActivity() {
 
     private var presenter:DetailsActivityPresenter? = null
+
+    private var Post: ResponsePost? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +27,19 @@ class DetailsActivity : AppCompatActivity() {
             val imageUrl:String = it.getString("imageUrl")
             val description:String = it.getString("title")
             val price:Int = it.getInt("price", 0)
-            val hasDiscount:Boolean = it.getBoolean("price", false)
+            val hasDiscount:Boolean = it.getBoolean("hasDiscount", false)
             val oldPrice:Int = it.getInt("oldPrice", 0)
             val discount:Int = it.getInt("discount",0)
 
 
-            txtDetailTitle.text = description
-            txtDetailPrice.text = "$ $price"
+            txtDetailTitle.text =description
+            txtDetailPrice.text = "$$price"
 
             Glide.with(this)
                 .load("https:${imageUrl}")
                 .into(imageDetailHeader)
+
+
 
             if (hasDiscount){
                 txtDetailOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -54,17 +57,29 @@ class DetailsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        intent?.extras?.let {
+        if (Post != null){
 
-            val id:String = it.getString("id")
+            intent?.extras?.let {
 
-            presenter?.getPostData(id)
+                val id:String = it.getString("id")
+
+                presenter?.getPostData(id)
+            }
         }
-
 
     }
 
     fun fillPostData(post:ResponsePost?){
 
+        post?.let {
+
+            it.mainImage?.let { image ->
+                Glide.with(this)
+                    .load("https:${image.url}")
+                    .into(imageDetailHeader)
+            }
+
+
+        }
     }
 }
