@@ -17,7 +17,9 @@ data class MainActivityPresenter (private val view:MainActivity) {
 
     fun returnPosts(items: List<PostItem?>?){
 
-        view.fillList(items)
+        view.fillList(items?.filter { post ->
+            (post?.price != null || !post?.description.isNullOrEmpty())
+        })
 
     }
 
