@@ -104,7 +104,26 @@ class DetailsActivity : AppCompatActivity() {
             }
 
             presenter?.divideSummary(it.summary)
+
+            it.resources?.let {res ->
+
+                chipContainer.visibility = View.VISIBLE
+
+                if (res.images?.any() == true){
+
+                    txtChip.text = "${res.images.count()} Fotos"
+                }
+
+                if (res.videos?.any() == true){
+
+                    txtChip.text = "${txtChip.text} | ${res.videos.count()} Videos"
+
+                }
+            }
+
+
         }
+
     }
 
     fun addDescriptionDividerView(text:String){

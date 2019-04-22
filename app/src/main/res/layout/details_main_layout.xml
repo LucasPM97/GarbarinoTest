@@ -7,12 +7,23 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <ImageView
-                android:id="@+id/imageDetailHeader"
+        <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:transitionName="transitionHeader"
-                android:src="@drawable/img_placeholder"/>
+                android:layout_height="300dp">
+            <ImageView
+                    android:id="@+id/imageDetailHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:transitionName="transitionHeader"
+                    android:src="@drawable/img_placeholder"/>
+            <include layout="@layout/chip_text"
+                     android:id="@+id/chipContainer"
+                     android:layout_height="wrap_content"
+                     android:layout_width="wrap_content"
+                     android:layout_alignParentBottom="true"
+                     android:layout_alignParentRight="true"
+                     android:visibility="gone"/>
+        </RelativeLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:paddingHorizontal="20dp"
