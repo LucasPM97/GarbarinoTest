@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.user.garbarinotest.R
 import com.example.user.garbarinotest.details.views.DetailsActivity
 import com.example.user.garbarinotest.models.PostItem
@@ -40,6 +41,9 @@ class AdapterPosts(private val data: List<PostItem?>?): RecyclerView.Adapter<Ada
                     itemView.txtTitle.text = description
                     itemView.txtPrice.text = "$ $price"
 
+                    Glide.with(itemView.context)
+                        .load("https:${imageUrl}")
+                        .into(itemView.imageHeader)
 
                     if (hasDiscount()){
                         itemView.txtOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -60,6 +64,7 @@ class AdapterPosts(private val data: List<PostItem?>?): RecyclerView.Adapter<Ada
                         intent.putExtra("oldPrice", listPrice)
                         intent.putExtra("discount", discount)
                         intent.putExtra("hasDiscount", hasDiscount())
+                        intent.putExtra("imageUrl", imageUrl)
 
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
