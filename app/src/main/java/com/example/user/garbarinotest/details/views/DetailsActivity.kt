@@ -1,14 +1,20 @@
 package com.example.user.garbarinotest.details.views
 
 import android.graphics.Paint
+import android.nfc.FormatException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.user.garbarinotest.R
 import com.example.user.garbarinotest.home.presenter.DetailsActivityPresenter
 import com.example.user.garbarinotest.models.ResponsePost
+import com.example.user.garbarinotest.utils.createNewView
+import kotlinx.android.synthetic.main.details_description_layout.*
 import kotlinx.android.synthetic.main.details_main_layout.*
+import kotlinx.android.synthetic.main.text_divider.view.*
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -57,7 +63,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (Post != null){
+        if (Post == null){
 
             intent?.extras?.let {
 
@@ -79,7 +85,22 @@ class DetailsActivity : AppCompatActivity() {
                     .into(imageDetailHeader)
             }
 
+            presenter?.divideSummary(it.summary)
+        }
+    }
 
+    fun addDescriptionDividerView(text:String){
+
+        try {
+            //var dividerView = descriptionDataLayout.inflate(R.layout.text_divider)
+            var dividerView = this.createNewView(R.layout.text_divider)//LayoutInflater.from(this).inflate(R.layout.text_divider, null)
+
+            dividerView.txtData.text = text
+
+            descriptionDataLayout.addView(dividerView)
+        }
+        catch (e:FormatException){
+            println(e)
         }
     }
 }
