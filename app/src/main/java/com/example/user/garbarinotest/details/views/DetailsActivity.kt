@@ -5,6 +5,7 @@ import android.nfc.FormatException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
@@ -27,6 +28,14 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
         presenter = DetailsActivityPresenter(this)
+
+        val actionbar = supportActionBar
+
+        actionbar?.let {
+            it.title = "Detalles del producto"
+            it.setDisplayHomeAsUpEnabled(true)
+        }
+
 
         intent?.extras?.let {
 
@@ -58,6 +67,11 @@ class DetailsActivity : AppCompatActivity() {
 
             detailTagLayout.visibility = View.GONE
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     override fun onResume() {

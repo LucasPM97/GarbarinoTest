@@ -26,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val actionbar = supportActionBar
+
+        actionbar?.let {
+            it.title = "Home"
+        }
+
         recyclerView.layoutManager = GridLayoutManager(this,2)
 
 
