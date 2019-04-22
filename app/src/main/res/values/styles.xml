@@ -20,7 +20,7 @@
     <style name="RatingBarIndicator" parent="Widget.AppCompat.RatingBar.Indicator">
         <item name="android:progressBackgroundTint">@color/colorRatingStarsBackground</item>
         <item name="android:progressTint">@color/colorRatingStarsTint</item>
-        <item name="android:secondaryProgressTint">@color/colorRatingStarsBackground</item>
+        <item name="android:secondaryProgressTint">@color/colorRatingStarsTint</item>
     </style>
 
 </resources>
