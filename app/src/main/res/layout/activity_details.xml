@@ -22,6 +22,11 @@
                     layout="@layout/details_description_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"/>
+            <include
+                    layout="@layout/details_reviews_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"/>
         </LinearLayout>
     </ScrollView>

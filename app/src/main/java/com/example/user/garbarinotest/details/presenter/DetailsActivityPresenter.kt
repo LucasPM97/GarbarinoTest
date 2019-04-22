@@ -27,8 +27,11 @@ data class DetailsActivityPresenter (private val view:DetailsActivity) {
 
         reviews?.let {
 
-            view.addReviewsStars(it.reviewStatistics)
-            view.addReviews(it.reviews?.take(3))
+            view.addReviewsStars(it.reviewStatistics, it.totalReviewCount)
+            it.reviews?.take(3)?.forEach {item ->
+                view.addReviews(item)
+            }
+
             view.Reviews = it
         }
     }

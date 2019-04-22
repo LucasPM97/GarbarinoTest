@@ -38,7 +38,7 @@
                     android:transitionName="transitionTitle"
                     android:textSize="25sp"
                     android:textColor="@color/colorProductTitle"/>
-            <include layout="@layout/rating_reviews"
+            <include layout="@layout/main_rating_reviews"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"/>
             <TextView
