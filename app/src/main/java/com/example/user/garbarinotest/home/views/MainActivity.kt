@@ -3,20 +3,12 @@ package com.example.user.garbarinotest.home.views
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.View
 import com.example.user.garbarinotest.R
 import com.example.user.garbarinotest.adapters.AdapterPosts
-import com.example.user.garbarinotest.apis.ApiProducts
 import com.example.user.garbarinotest.home.presenter.MainActivityPresenter
-import com.example.user.garbarinotest.models.PostItem
-import com.example.user.garbarinotest.models.ResponseList
+import com.example.user.garbarinotest.models.products.PostItem
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +36,13 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        presenter?.getPosts()
+        presenter?.let { pres ->
+
+            if (pres.needReloadData()){
+                pres.getPosts()
+            }
+
+        }
 
     }
 

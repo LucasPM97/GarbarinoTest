@@ -1,12 +1,12 @@
-package com.example.user.garbarinotest.models
+package com.example.user.garbarinotest.models.products
 
 import com.google.gson.annotations.SerializedName
 
 data class Resources(
 
-	@field:SerializedName("images")
+    @field:SerializedName("images")
 	val images: List<ImagesItem?>? = null,
 
-	@field:SerializedName("videos")
+    @field:SerializedName("videos")
 	val videos: List<Any?>? = null
 )

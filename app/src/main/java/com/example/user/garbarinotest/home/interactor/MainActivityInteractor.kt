@@ -3,8 +3,8 @@ package com.example.user.garbarinotest.home.interactor
 import com.example.user.garbarinotest.Helper.ApiHelper
 import com.example.user.garbarinotest.apis.ApiProducts
 import com.example.user.garbarinotest.home.presenter.MainActivityPresenter
-import com.example.user.garbarinotest.models.PostItem
-import com.example.user.garbarinotest.models.ResponseList
+import com.example.user.garbarinotest.models.products.PostItem
+import com.example.user.garbarinotest.models.products.ResponseList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

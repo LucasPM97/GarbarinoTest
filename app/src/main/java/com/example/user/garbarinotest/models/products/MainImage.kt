@@ -1,8 +1,8 @@
-package com.example.user.garbarinotest.models
+package com.example.user.garbarinotest.models.products
 
 import com.google.gson.annotations.SerializedName
 
-data class ImagesItem(
+data class MainImage(
 
 	@field:SerializedName("max_width")
 	val maxWidth: Int? = null,

@@ -4,17 +4,19 @@ import android.graphics.Paint
 import android.nfc.FormatException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.user.garbarinotest.R
 import com.example.user.garbarinotest.home.presenter.DetailsActivityPresenter
-import com.example.user.garbarinotest.models.ResponsePost
+import com.example.user.garbarinotest.models.products.ResponsePost
+import com.example.user.garbarinotest.models.reviews.ResponseReviewsItems
+import com.example.user.garbarinotest.models.reviews.ReviewStatistics
+import com.example.user.garbarinotest.models.reviews.ReviewsItem
 import com.example.user.garbarinotest.utils.createNewView
+import kotlinx.android.synthetic.main.chip_text.*
 import kotlinx.android.synthetic.main.details_description_layout.*
 import kotlinx.android.synthetic.main.details_main_layout.*
+import kotlinx.android.synthetic.main.rating_reviews.*
 import kotlinx.android.synthetic.main.text_divider.view.*
 
 class DetailsActivity : AppCompatActivity() {
@@ -22,6 +24,8 @@ class DetailsActivity : AppCompatActivity() {
     private var presenter:DetailsActivityPresenter? = null
 
     private var Post: ResponsePost? = null
+
+    var Reviews: ResponseReviewsItems? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +43,8 @@ class DetailsActivity : AppCompatActivity() {
 
         intent?.extras?.let {
 
-            val imageUrl:String = it.getString("imageUrl")
-            val description:String = it.getString("title")
+            val imageUrl:String? = it.getString("imageUrl")
+            val description:String? = it.getString("title")
             val price:Int = it.getInt("price", 0)
             val hasDiscount:Boolean = it.getBoolean("hasDiscount", false)
             val oldPrice:Int = it.getInt("oldPrice", 0)
@@ -58,7 +62,7 @@ class DetailsActivity : AppCompatActivity() {
 
             if (hasDiscount){
                 txtDetailOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                txtDetailOldPrice.text = "$ $oldPrice"
+                txtDetailOldPrice.text = "$$oldPrice"
                 txtDetailDiscount.text = "${discount}% OFF"
             }
             else{
@@ -89,7 +93,7 @@ class DetailsActivity : AppCompatActivity() {
 
     }
 
-    fun fillPostData(post:ResponsePost?){
+    fun fillPostData(post: ResponsePost?){
 
         post?.let {
 

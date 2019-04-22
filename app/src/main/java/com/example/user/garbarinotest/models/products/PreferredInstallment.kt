@@ -1,4 +1,4 @@
-package com.example.user.garbarinotest.models
+package com.example.user.garbarinotest.models.products
 
 import com.google.gson.annotations.SerializedName
 

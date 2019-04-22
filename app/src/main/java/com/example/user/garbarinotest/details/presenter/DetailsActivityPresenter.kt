@@ -2,13 +2,9 @@ package com.example.user.garbarinotest.home.presenter
 
 import com.example.user.garbarinotest.details.views.DetailsActivity
 import com.example.user.garbarinotest.home.interactor.DetailsActivityInteractor
-import com.example.user.garbarinotest.home.interactor.MainActivityInteractor
-import com.example.user.garbarinotest.home.views.MainActivity
-import com.example.user.garbarinotest.models.PostItem
-import com.example.user.garbarinotest.models.ResponsePost
+import com.example.user.garbarinotest.models.products.ResponsePost
+import com.example.user.garbarinotest.models.reviews.ResponseReviewsItems
 import com.example.user.garbarinotest.utils.splitByDot
-import android.accounts.Account
-
 
 
 data class DetailsActivityPresenter (private val view:DetailsActivity) {
@@ -27,6 +23,11 @@ data class DetailsActivityPresenter (private val view:DetailsActivity) {
 
     }
 
+    fun returnPostReviews(reviews: ResponseReviewsItems?) {
+
+    }
+
+
     fun divideSummary(summary: String?) {
         val list = summary?.splitByDot()
 
@@ -40,5 +41,11 @@ data class DetailsActivityPresenter (private val view:DetailsActivity) {
 
     }
 
+    fun getPostReviews(id: String?) {
 
+        id?.let {
+            interactor.getPostReviews(it)
+        }
+
+    }
 }
